@@ -8,9 +8,10 @@ export default defineConfig((opts) => ({
     codegen: "ts/codegen/index.ts",
   },
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
+  noExternal: ["@ark/util"],
   // don't generate DTS during watch mode because it's slow
   // we're likely using TS source in this mode anyway
   dts: !opts.watch,

@@ -9,10 +9,18 @@ import {
   getSchemaTypes,
   getValueSchema,
 } from "@latticexyz/protocol-parser/internal";
-import storeConfig from "@latticexyz/store/mud.config";
-import worldConfig from "@latticexyz/world/mud.config";
+import storeConfigRaw from "@latticexyz/store/mud.config";
+import worldConfigRaw from "@latticexyz/world/mud.config";
 import { Table as ConfigTable, Schema } from "@latticexyz/config";
 import { configToTables } from "./configToTables";
+
+// utils/normalizeImport.ts
+export function normalizeImport<T>(module: T): T {
+  return (module && typeof module === "object" && "default" in module ? module.default : module) as T;
+}
+
+const storeConfig = normalizeImport(storeConfigRaw);
+const worldConfig = normalizeImport(worldConfigRaw);
 
 export const mudTables = {
   ...configToTables(storeConfig),

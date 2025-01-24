@@ -75,10 +75,13 @@ export function createNonceManager({
     await ref.noncePromise;
   }
 
-  function shouldResetNonce(error: unknown): boolean {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  function shouldResetNonce(error: any): boolean {
     return (
-      error instanceof BaseError &&
-      error.walk((e) => e instanceof NonceTooLowError || e instanceof NonceTooHighError) != null
+      (error instanceof BaseError &&
+        error.walk((e) => e instanceof NonceTooLowError || e instanceof NonceTooHighError) != null) ||
+      error.name === "NonceTooLowError" ||
+      error.name === "NonceTooHighError"
     );
   }
 

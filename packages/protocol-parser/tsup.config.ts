@@ -6,7 +6,7 @@ export default defineConfig((opts) => ({
     internal: "src/exports/internal.ts",
   },
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
   // don't generate DTS during watch mode because it's slow

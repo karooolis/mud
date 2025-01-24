@@ -4,7 +4,7 @@ export default defineConfig((opts) => ({
   tsconfig: "tsconfig.tsup.json",
   entry: ["src/bin/explorer.ts", "src/exports/observer.ts"],
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: false,
   // don't generate DTS during watch mode because it's slow

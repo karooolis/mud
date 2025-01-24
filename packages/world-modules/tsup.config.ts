@@ -5,7 +5,7 @@ export default defineConfig((opts) => ({
     "mud.config": "mud.config.ts",
   },
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
   // don't generate DTS during watch mode because it's slow

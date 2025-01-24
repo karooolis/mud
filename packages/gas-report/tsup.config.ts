@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig((opts) => ({
   entry: ["ts/exports/internal.ts", "ts/bin/gas-report.ts"],
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
   // don't generate DTS during watch mode because it's slow

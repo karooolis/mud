@@ -3,7 +3,7 @@ import { defineConfig } from "tsup";
 export default defineConfig((opts) => ({
   entry: ["src/bin/cli.ts"],
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   minify: true,
   sourcemap: true,
   // don't generate DTS during watch mode because it's slow

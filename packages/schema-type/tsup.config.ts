@@ -8,7 +8,7 @@ export default defineConfig((opts) => ({
   },
   outDir: "dist",
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
   injectStyle: true,

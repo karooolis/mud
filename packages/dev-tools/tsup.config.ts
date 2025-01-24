@@ -15,7 +15,7 @@ const bundledDeps = Object.keys(packageJson.dependencies).filter((dep) => !peerD
 export default defineConfig((opts) => ({
   entry: ["src/index.ts"],
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
   injectStyle: true,

@@ -20,12 +20,13 @@ const mudPackages: MudPackages = Object.fromEntries(
 export default defineConfig((opts) => ({
   entry: ["src/index.ts", "src/mud.ts"],
   target: "esnext",
-  format: ["esm"],
+  format: ["esm", "cjs"],
   sourcemap: true,
   minify: true,
   env: {
     MUD_PACKAGES: JSON.stringify(mudPackages),
   },
+  noExternal: ["@ark/util", "p-queue", "p-retry"],
   // don't generate DTS during watch mode because it's slow
   // we're likely using TS source in this mode anyway
   dts: !opts.watch,
